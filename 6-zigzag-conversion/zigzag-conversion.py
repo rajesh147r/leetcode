@@ -1,15 +1,16 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-         if numRows >= len(s) or numRows==1 : return s
-         index, next=0, 1
-         rows = [[] for _ in range(numRows)]
-         for char in s:
-            rows[index].append(char)
-            if index == 0:
-                next = 1
-            elif index == numRows-1:
-                next = -1
-            index += next
-         for i in range(numRows):
-            rows[i]=''.join(rows[i])
-         return ''.join(rows)
+        if numRows == 1 or numRows >= len(s):
+            return s
+
+        arr = [''] * numRows
+        current, dir = 1, 1
+        arr[0] += s[0]
+
+        for char in s[1:]:
+            arr[current] += char
+            if current % (numRows - 1) == 0:
+                dir = -dir
+            current += dir
+
+        return ''.join(arr)
