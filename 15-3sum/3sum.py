@@ -1,11 +1,11 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         n=len(nums)
-        if n == 3:
-            if sum(nums) == 0:
-                return [nums]
-            else:
-                return []
+        # if n == 3:
+        #     if sum(nums) == 0:
+        #         return [nums]
+        #     else:
+        #         return []
         nums.sort()
         result = []
         for i in range(n):
